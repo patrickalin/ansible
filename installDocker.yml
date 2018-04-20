@@ -1,0 +1,7 @@
+---
+- name: This playbook deploys docker and docker-compose on Ubuntu
+  hosts: 
+    - docker
+  roles:
+    - docker
+    - docker-compose

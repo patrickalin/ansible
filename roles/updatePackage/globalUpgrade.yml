@@ -1,0 +1,6 @@
+- name: Mise à jour du serveur
+  hosts: all
+  tasks:
+    - name: Upgrade all packages to the latest version
+      apt:
+        upgrade: dist

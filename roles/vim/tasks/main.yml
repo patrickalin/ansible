@@ -1,0 +1,8 @@
+- name: install the latest version of vim
+  package:
+     name: vim
+     state: latest
+- name: alias vi = vim 
+  lineinfile:
+     dest: /root/.bashrc
+     line: "alias vi='vim'"

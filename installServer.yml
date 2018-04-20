@@ -1,0 +1,11 @@
+---
+- name: This playbook deploys common configuration on one server
+  hosts:
+    - server
+  roles:
+    - gitbash
+    - vim
+    - fish
+  vars:
+    - fish_users: ['pa']
+    - fish_completions: ['apt-get']

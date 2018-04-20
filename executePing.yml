@@ -1,0 +1,6 @@
+---
+- name: This playbook ping
+  hosts: 
+    - all
+  roles:
+    - ping

@@ -1,0 +1,6 @@
+---
+- name: This playbook deploys go on Ubuntu
+  hosts: 
+    - go
+  roles:
+    - go

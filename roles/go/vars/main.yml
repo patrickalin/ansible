@@ -1,0 +1,5 @@
+---
+INSTALL_DIR: /opt/
+GOPATH: /opt/development/gopath
+GOROOT: /opt/go
+URL_GOLANG: ihttps://dl.google.com/go/go1.10.1.linux-amd64.tar.gz

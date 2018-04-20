@@ -1,0 +1,4 @@
+---
+- name: Load Bashrc
+  command: source /root/.bashrc
+

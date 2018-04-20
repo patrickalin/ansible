@@ -1,0 +1,24 @@
+- name: Unarchive le go.tar
+  unarchive:
+     src: "{{ URL_GOLANG }}"
+     dest: "{{ INSTALL_DIR }}"
+     remote_src: yes
+
+- file:
+    path: "{{ GOPATH }}"
+    state: directory
+
+- name: Export GOPATH
+  lineinfile:
+     dest: /root/.bashrc
+     line: "export GOPATH={{ GOPATH }}"
+
+- name: Export GOROOT
+  lineinfile:
+     dest: /root/.bashrc
+     line: "export GOROOT={{ GOROOT }}"
+
+- name: Export PATH go
+  lineinfile:
+     dest: /root/.bashrc
+     line: "export PATH=$PATH:{{ GOROOT }}/bin:{{ GOPATH }}/bin"
