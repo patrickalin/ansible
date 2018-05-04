@@ -7,5 +7,5 @@
     - vim
     - fish
   vars:
-    - fish_users: ['pa']
+    - fish_users: ['pa','root']
     - fish_completions: ['apt-get']
