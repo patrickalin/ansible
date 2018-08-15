@@ -9,3 +9,4 @@
   vars:
     - fish_users: ['pa','root']
     - fish_completions: ['apt-get']
+    - fish_functions: ['__terlar_git_prompt']

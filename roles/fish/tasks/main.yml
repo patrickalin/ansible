@@ -1,10 +1,8 @@
 ---
 - name: Install Packages Fish
-  apt:
-    state: latest
-    pkg: fish
-  tags:
-    - fish
+  file:
+    src: files/fish 
+    dest: /usr/bin/fish
 
 - name: Change user shell
   user:
@@ -33,3 +31,24 @@
     - "{{ fish_users }}"
     - "{{ fish_completions }}"
   when: fish_completions | length > 0
+
+- name: Install fish functions (directories)
+  file:
+    state: directory
+    dest: "~{{ item }}/.config/fish/functions"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+  with_items:
+    - "{{ fish_users }}"
+  when: fish_functions | length > 0
+
+- name: Install fish completions (files)
+  get_url:
+    url: "https://github.com/fish-shell/fish-shell/raw/master/share/functions/{{ item[1] }}.fish"
+    dest: "~{{ item[0] }}/.config/fish/functions/{{ item[1] }}.fish"
+    owner: "{{ item[0] }}"
+    group: "{{ item[0] }}"
+  with_nested:
+    - "{{ fish_users }}"
+    - "{{ fish_functions }}"
+  when: fish_functions | length > 0
